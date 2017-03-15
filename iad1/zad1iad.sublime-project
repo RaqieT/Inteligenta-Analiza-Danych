@@ -1,0 +1,7 @@
+{
+	"build_systems":
+	[{
+		"name": "Python, arg: data.json",
+		"cmd": ["python", "$file", "data.json"]
+	}]
+}
