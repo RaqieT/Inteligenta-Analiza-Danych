@@ -21,7 +21,7 @@ n = data["n"]
 K = data["K"]
 
 random.seed
-w = [[random.uniform(w1,w2) for x in range(N)] for y in range(n)]
+w = [random.uniform(w1,w2) for x in range(N)]
 x = [[random.uniform(x1,x2) for x in range(N)] for y in range(n)]
 originalW = deepcopy(w)
 
@@ -32,8 +32,9 @@ for k in range(K):
     for j in range(n): 
         y[j] = 0
         for i in range(N):
-            y[j] += x[j][i]*w[j][i] 
+            y[j] += x[j][i]*w[i] 
         for i in range(N):
-            w[j][i] = w[j][i] + neta*(z[j]-y[j])*x[j][i]
+            w[i] = w[i] + neta*(z[j]-y[j])*x[j][i]
 for i in range(n):
-    print ("Trening {}:\nX: {}\nWagi (przed): {}\nWagi (po): {}\nWynik oczekiwany (z): {}\nWynik neuronowy (y): {}\n".format(i+1,x[i],originalW[i],w[i],z[i],y[i]))
+    print ("Trening {}:\nX: {}\nWynik oczekiwany (z): {}\nWynik neuronowy (y): {}\n".format(i+1,x[i],z[i],y[i]))
+print ("Wagi przed: {}\nWagi po: {}\n".format(originalW,w))
