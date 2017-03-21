@@ -22,7 +22,7 @@ K = data["K"]
 
 random.seed
 w = [round(random.uniform(w1,w2),1) for x in range(N)]
-x = [[random.uniform(x1,x2) for x in range(N)] for y in range(n)]
+x = [[round(random.uniform(x1,x2),1) for x in range(N)] for y in range(n)]
 originalW = deepcopy(w)
 
 
