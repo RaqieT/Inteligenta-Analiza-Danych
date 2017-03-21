@@ -13,18 +13,19 @@ x1 = data["x1"]
 x2 = data["x2"]
 w1 = data["w1"]
 w2 = data["w2"]
+"""ILE WARTOSCI"""
 N = data["N"]
-n = data["n"]
+"""ILOŚĆ TRENINGOW"""
+n = data["n"] 
 K = data["K"]
 
-w = [[random.uniform(w1,w2) for x in range(n)] for y in range(N)]
-x = [[random.uniform(x1,x2) for x in range(n)] for y in range(N)]
+w = [[random.uniform(w1,w2) for x in range(N)] for y in range(n)]
+x = [[random.uniform(x1,x2) for x in range(N)] for y in range(n)]
 
 z = [sum(x[i]) for i in range(n)]
 y = [0 for i in range(n)]
 
 for k in range(K):
-    """ j to μ"""
     for j in range(n): 
         y[j] = 0
         for i in range(N):
