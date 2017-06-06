@@ -1,0 +1,6 @@
+C:\Users\robek_000\Desktop\IADz3\IadZadanie3\Perceptron\bin\Debug\Perceptron.exe.config
+C:\Users\robek_000\Desktop\IADz3\IadZadanie3\Perceptron\bin\Debug\Perceptron.exe
+C:\Users\robek_000\Desktop\IADz3\IadZadanie3\Perceptron\bin\Debug\Perceptron.pdb
+C:\Users\robek_000\Desktop\IADz3\IadZadanie3\Perceptron\obj\Debug\Perceptron.csprojResolveAssemblyReference.cache
+C:\Users\robek_000\Desktop\IADz3\IadZadanie3\Perceptron\obj\Debug\Perceptron.exe
+C:\Users\robek_000\Desktop\IADz3\IadZadanie3\Perceptron\obj\Debug\Perceptron.pdb

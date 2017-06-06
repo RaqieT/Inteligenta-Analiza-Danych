@@ -1,0 +1,223 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[T1]{polski}
+\usepackage[cp1250]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+
+\setlength{\textheight}{21cm}
+
+\title{{\bf Zadanie nr 3 - Perceptron Wielowarstwowy i metoda wstecznej propagacji b³edu}\linebreak
+Inteligentna analiza danych}
+\author{Robert Radczyc, 203976 \and Dawid Micha³owski, 203942}
+\date{07.06.2017}
+
+\begin{document}
+\clearpage\maketitle
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
+\section{Cel zadania}
+
+Celem zadania by³o zbuodwanie sieci neuronów wielowarstwowego preceptronu z wykorzystaniem metody wstecznej propagacji b³êdu jako metody jej nauczania.
+
+
+\section{Wstêp teoretyczny}
+
+Wykorzystujemy metodê wstecznej propagacji b³êdu, która jest stosowana do sieci wielowarstowych. Polega ona na wyliczeniu b³êdu dla warstwy najwyzszej, a nastêpnie na podstawie tej warstwy wyliczyamy b³¹d warstwy o jeden ni¿szej tak d³ugo, a¿ nie wyliczymy b³êdu dla ka¿dej z warstw. 
+
+\smallskip
+B³¹d ten uwzglêdniany jest potem przy przeliczaniu wag na wejœciach neuronów.
+
+\section{Eksperymenty i wyniki}
+
+Bêdziemy trenowaæ sieæ ustawiaj¹c jej parametry w ró¿ny sposób, to znaczy: 
+\\-Wartoœæ kroku treningowego
+\\-Iloœæ epok treningu
+\\-Okreœlenie czy sieœ posiada BIAS 
+\\-Okreœlenie czy wzorce treningowe s¹ przemieszane
+\\W eksperymentach przedstawiwamy nastêpuj¹ce wzorce treningowe
+\\\centerline{\{1,0,0,0\} : \{1,0,0,0\}}
+\\\centerline{\{0,1,0,0\} : \{0,1,0,0\}}  
+\\\centerline{\{0,0,1,0\} : \{0,0,1,0\}}
+\\\centerline{\{0,0,0,1\} : \{0,0,0,1\}}  
+\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PODROZDZIA£ PT. EKSPERYMENT NR 1 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Eksperyment nr 1}
+
+\subsection{Za³o¿enia}
+W tym eksperymencie u¿yliœmy nastêpuj¹cych parametrów: 
+\\-Wartoœæ kroku treningowego = 0.1 
+\\-Iloœæ epok treningu = 100 000 
+\\-Okreœlenie czy sieœ posiada BIAS = false
+\\-Okreœlenie czy wzorce treningowe s¹ przemieszane = false
+
+\subsubsection{Rezultat}
+
+\\Wyjscie z warstwy Ukrytej:
+\\1 Neuron\hspace{10}        2 Neuron
+\\0,0962     \hspace{20}   0,0964
+\\0,9978     \hspace{20}   0,0095
+\\0,0963     \hspace{20}   0,0963
+\\0,0092     \hspace{20}   0,9978
+\\
+\\Wyjscie z warstwy Wynikowej:
+\\1 Neuron\hspace{10}        2 Neuron\hspace{10}        3 Neuron\hspace{10}        4Neuron
+\\0,3827\hspace{25}          0,0755\hspace{25}          0,3827\hspace{25}          0,0756
+\\0,0757\hspace{25}          0,9670\hspace{25}           0,0760\hspace{25}           0,0000
+\\0,3827\hspace{25}          0,0757\hspace{25}          0,3827\hspace{25}          0,0755
+\\0,0759\hspace{25}          0,0000\hspace{25}               0,0758\hspace{25}          0,9670
+	
+	\subsubsection{Wnioski}
+Z wyników w tabelach poni¿ej mo¿na zauwa¿yæ ¿e sieæ nie nauczy³a siê poprawnie interpretowaæ danych.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PODROZDZIA£ PT. EKSPERYMENT NR 2 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\subsection{Eksperyment nr 2}
+
+\subsection{Za³o¿enia}
+W tym eksperymencie u¿yliœmy nastêpuj¹cych parametrów: 
+\\-Wartoœæ kroku treningowego = 0.1 
+\\-Iloœæ epok treningu = 100 000 
+\\-Okreœlenie czy sieœ posiada BIAS = false
+\\-Okreœlenie czy wzorce treningowe s¹ przemieszane = false
+
+\subsubsection{Rezultat}
+
+\\Wyjscie z warstwy Ukrytej:
+\\1 Neuron\hspace{10}         2 Neuron
+\\0,9995\hspace{20}          0,0036
+\\0,0519\hspace{20}          0,0517
+\\0,0035\hspace{20}          0,9995
+\\0,0517\hspace{20}          0,0519
+\\
+\\Wyjscie z warstwy Wynikowej:
+\\1 Neuron\hspace{10}         2 Neuron\hspace{10}         3 Neuron\hspace{10}         4 Neuron
+\\0,9855\hspace{25}          0,0457\hspace{25}          0,0000\hspace{25}          0,0451
+\\0,0457\hspace{25}          0,4220\hspace{25}          0,0450\hspace{25}          0,4220
+\\0,0000\hspace{25}          0,0450\hspace{25}          0,9855\hspace{25}          0,0457
+\\0,0450\hspace{25}          0,4220\hspace{25}          0,0457\hspace{25}          0,4220
+\subsubsection{Wnioski}
+Ten eksperyment pokazuje, ¿e zwiêkszenie iloœci epok treningowych równie¿ nie przynosi oczekiwanych efektów i sieæ nadal nie nauczy³a siê poprawnie interpretowaæ danych.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PODROZDZIA£ PT. EKSPERYMENT NR 3 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\subsection{Eksperyment nr 3}
+
+\subsection{Za³o¿enia}
+W tym eksperymencie u¿yliœmy nastêpuj¹cych parametrów: 
+\\-Wartoœæ kroku treningowego = 0.1 
+\\-Iloœæ epok treningu = 100 000 
+\\-Okreœlenie czy sieœ posiada BIAS = true
+\\-Okreœlenie czy wzorce treningowe s¹ przemieszane = false
+
+\subsubsection{Rezultat}
+
+\\Wyjscie z warstwy Ukrytej:
+\\1 Neuron\hspace{10}         2 Neuron
+\\0,0068\hspace{20}          0,9686
+\\0,9814\hspace{20}          0,0089
+\\0,0117\hspace{20}          0,0078
+\\0,9894\hspace{20}          0,9919
+\\
+\\Wyjscie z warstwy Wynikowej:
+\\1 Neuron\hspace{10}         2 Neuron\hspace{10}         3 Neuron\hspace{10}         4 Neuron
+\\0,9853\hspace{25}          0,0000\hspace{25}          0,0103\hspace{25}          0,0163
+\\0,0000\hspace{25}          0,9853\hspace{25}          0,0105\hspace{25}          0,0161
+\\0,0130\hspace{25}          0,0126\hspace{25}          0,9836\hspace{25}          0,0000
+\\0,0101\hspace{25}          0,0103\hspace{25}          0,0000\hspace{25}          0,9808
+\subsubsection{Wnioski}
+Ten eksperyment pokazuje, ¿e to w³aœnie BIAS jest czynnikiem który decyduje o poprawnoœci jego dzia³ania, poniewa¿ dopiero teraz wyniki s¹ zbli¿one do oczekiwanych.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PODROZDZIA£ PT. EKSPERYMENT NR 4 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\subsection{Eksperyment nr 4}
+
+\subsection{Za³o¿enia}
+W tym eksperymencie u¿yliœmy nastêpuj¹cych parametrów: 
+\\-Wartoœæ kroku treningowego = 0.1 
+\\-Iloœæ epok treningu = 100 000 
+\\-Okreœlenie czy sieœ posiada BIAS = true
+\\-Okreœlenie czy wzorce treningowe s¹ przemieszane = true
+
+\subsubsection{Rezultat}
+
+\\Wyjscie z warstwy Ukrytej:
+\\1 Neuron\hspace{10}         2 Neuron
+\\0,9776\hspace{20}          0,0076
+\\0,0089\hspace{20}          0,0092
+\\0,0077\hspace{20}          0,9792
+\\0,9907\hspace{20}          0,9904
+\\
+\\Wyjscie z warstwy Wynikowej:
+\\1 Neuron\hspace{10}         2 Neuron\hspace{10}         3 Neuron\hspace{10}         4 Neuron
+\\0,9853\hspace{25}          0,0105\hspace{25}          0,0000\hspace{25}          0,0163
+\\0,0128\hspace{25}          0,9835\hspace{25}          0,0128\hspace{25}          0,0000
+\\0,0000\hspace{25}          0,0105\hspace{25}          0,9853\hspace{25}          0,0163
+\\0,0103\hspace{25}          0,0000\hspace{25}          0,0103\hspace{25}          0,9807
+\subsubsection{Wnioski}
+Powy¿szy eksperyment pokazuje ¿e nawet w przypadku gdy losowo przestawiamy wzorce treningowe nie wp³ywa to na proces nauku neuronów.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PODROZDZIA£ PT. EKSPERYMENT NR 4 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\subsection{Eksperyment nr 5}
+
+\subsection{Za³o¿enia}
+W tym eksperymencie u¿yliœmy nastêpuj¹cych parametrów: 
+\\-Wartoœæ kroku treningowego = 0.1 
+\\-Iloœæ epok treningu = 10 000 000 
+\\-Okreœlenie czy sieœ posiada BIAS = true
+\\-Okreœlenie czy wzorce treningowe s¹ przemieszane = false
+
+\subsubsection{Rezultat}
+
+\\Wyjscie z warstwy Ukrytej:
+\\1 Neuron\hspace{10}         2 Neuron
+\\0,0023\hspace{20}          0,0090
+\\0,9970\hspace{20}          0,9936
+\\0,0053\hspace{20}          0,9943
+\\0,9581\hspace{20}          0,0022
+\\
+\\Wyjscie z warstwy Wynikowej:
+\\1 Neuron\hspace{10}         2 Neuron\hspace{10}         3 Neuron\hspace{10}         4 Neuron
+\\0,9985\hspace{25}          0,0000\hspace{25}          0,0012\hspace{25}          0,0013
+\\0,0000\hspace{25}          0,9981\hspace{25}          0,0010\hspace{25}          0,0009
+\\0,0010\hspace{25}          0,0016\hspace{25}          0,9986\hspace{25}          0,0000
+\\0,0009\hspace{25}          0,0016\hspace{25}          0,0000\hspace{25}          0,9986
+\subsubsection{Wnioski}
+Zgodnie z naszymi przewidywaniami nawet 100-krotne zwiêkszenie iloœci epok da³o ma³o zadowolaj¹ce efekty gdy¿ zwiêkszy³o œrednio dok³adnoœæ rzêdu 0,01 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BIBLIOGRAFIA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BIBLIOGRAFIA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand\refname{Bibliografia}
+\bibliographystyle{plain}
+\bibliography{bibliografia_wzor}
+[1] Instrukcja do zadania z platformy WIKAMP
+\end{document}
