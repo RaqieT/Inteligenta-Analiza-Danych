@@ -1,0 +1,160 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[T1]{polski}
+\usepackage[cp1250]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+
+\setlength{\textheight}{21cm}
+
+\title{{\bf Zadanie nr 4 - Prosty Algorytm Generyczny}\linebreak
+Inteligentna analiza danych}
+\author{Robert Radczyc, 203976 \and Dawid Micha³owski, 203942}
+\date{21.06.2017}
+
+\begin{document}
+\clearpage\maketitle
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
+\section{Cel zadania}
+
+Celem zadania byla zaimplementacja prostego algorytmu genetycznego sukajacego miejsca x0 na przedziale [0.5, 2.5] bedacego miejscem maksymalizacji funkcji na tym przedziale. Badana jest nastêpujaca funkcja f(x)= ((e^2)*sin(10 \pi x)+1/x
+
+
+
+\section{Wstêp teoretyczny}
+
+Bedziemy uzywac nastepujacych pojec: 
+\\-populacja: zbiór wszystkich elementów 
+\\-chromosom: element populacji
+
+
+\smallskip\smallskip\smallskip\smallskip\smallskip
+Funkcja któr¹ badamy "rzutowana" jest na wartosci binarne przedstawione w chromosomach, z tych wartosci pózniej mozna wyliczyc wartosc naszej funkcji. Do wyszukiwania najwiekszej wartosci zostala zastosowana metoda ruletki. Polega ona na przypisaniu do kazdego chromosomu wartosci dopasowania(liczby z przedzialu [0,1]) wyliczanej w zaleznosci od wartosci jak¹ reprezentuje dany chromosom. Nastepnie losowana jest liczba z tego przedzialu, a chromosom, o wartosci dopasowania wiekszej, ale najblizszej wylosowanej zostaje wybrany jako przedstawiciel danej populacji. Nastepnie losowo wybierana jest metoda adaptacji tego chromowosmu do nowej populacji. Zaimplementowaliœmy krzyzowanie, mutacje oraz reprodukcje. Po wybraniu nowej populacji tej samej wielkosci co oryginalna powracamy do poczatku algorytmu, tak dlugo a¿ nie zostanie spelniony warunek stop.
+\\Wiemy równiez ze funkcja ta osiaga swoje maksimum na tym przedziale w punkcie x = 2.45056 i jest to wartosc 5.13884.
+
+\section{Eksperymenty i wyniki}
+
+Dodatkowe wlasnoci programu: 
+\\-ilosc chromosomów zale¿na jest od dokladnosci wprowadzonej do zmiennej precyzja; 
+\\-prawdopodobienstwo wystapienia danej operacji genetycznej na wybranym osobniku jest ustawiona "na sztywno" ale wystarczy zmienic zmienne krzyzowaniePrawd oraz mutacjaPrawd; 
+\\-jako warunek stopu ustawiona jest maksymalna ilosc generacji w zmiennej maxGen;
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PODROZDZIA£ PT. EKSPERYMENT NR 1 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Eksperyment nr 1}
+
+\subsection{Za³o¿enia}
+
+Zakladana dokladnosc wyniku: 0,1 
+\\Maksymalna liczba generacji: 10
+
+
+\subsubsection{Rezultat}
+
+Generacja #1: Srednia: 0,4 Najlepsza: 2,3 
+\\Generacja #2: Srednia: -0,8 Najlepsza: 4,3 
+\\Generacja #3: Srednia: 1,4 Najlepsza: 3,6 
+\\Generacja #4: Srednia: -1,6 Najlepsza: 3,6 
+\\Generacja #5: Srednia: 1,2 Najlepsza: 3,6 
+\\Generacja #6: Srednia: 2,9 Najlepsza: 3,9 
+\\Generacja #7: Srednia: 1,2 Najlepsza: 3,6 
+\\Generacja #8: Srednia: -1,8 Najlepsza: -0,4 
+\\Generacja #9: Srednia: 3,7 Najlepsza: 3,9 
+\\Generacja #10: Srednia: 1,3 Najlepsza: 2,3
+	
+	\subsubsection{Wnioski}
+Widac ¿e znalezione wartoœci nie s¹ zbyt bliskie prawdziwej wartoœci maksymalnej funkcji na badanym przedziale. Najelpszy wynik zosta³ znaleziony w drugiej generacji, warto jednak zauwa¿yæ  ¿e jest to wynik który mocno zawy¿a œredni¹, która jest mniejsza od 0. 
+\\Oznacza to, ¿e w tej generacji wiêkszoœæ osobników osi¹ga³a wartoœci poni¿ej 0 i spenia³y kryterium dopasowania w niskim stopniu.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PODROZDZIA£ PT. EKSPERYMENT NR 2 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\subsection{Eksperyment nr 2}
+
+\subsection{Za³o¿enia}
+Zak³adana dok³adnoœæ wyniku: 0,1 
+\\Maksymalna liczba generacji: 20
+
+\subsubsection{Rezultat}
+
+Generacja #1: Srednia: 0,7 Najlepsza: 4,3 
+\\Generacja #2: Srednia: 0,5 Najlepsza: 2,3 
+\\Generacja #3: Srednia: 1,6 Najlepsza: 2,8 
+\\Generacja #4: Srednia: 2,1 Najlepsza: 4,3 
+\\Generacja #5: Srednia: -0,4 Najlepsza: 2,3 
+\\Generacja #6: Srednia: -1,8 Najlepsza: -1,8 
+\\Generacja #7: Srednia: 0,6 Najlepsza: 1,7 
+\\Generacja #8: Srednia: 3,2 Najlepsza: 3,2 
+\\Generacja #9: Srednia: 1,7 Najlepsza: 1,7 
+\\Generacja #10: Srednia: 1,7 Najlepsza: 1,7 
+\\Generacja #11: Srednia: 1,7 Najlepsza: 1,7 
+\\Generacja #12: Srednia: 1,7 Najlepsza: 1,7 
+\\Generacja #13: Srednia: 1,7 Najlepsza: 1,7 
+\\Generacja #14: Srednia: 3,6 Najlepsza: 3,6 
+\\Generacja #15: Srednia: -1,9 Najlepsza: -1,9 
+\\Generacja #16: Srednia: -1,4 Najlepsza: -1,4 
+\\Generacja #17: Srednia: 2,2 Najlepsza: 2,2 
+\\Generacja #18: Srednia: 2,2 Najlepsza: 2,2 
+\\Generacja #19: Srednia: -1,5 Najlepsza: -1,5 
+\\Generacja #20: Srednia: -1,5 Najlepsza: -1,5
+\subsubsection{Wnioski}
+Dwukrotnie wieksza ilosc generacji pokazuje losowosc tej metody przy nie wielkiej iloœci chromosomów.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PODROZDZIA£ PT. EKSPERYMENT NR 3 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\subsection{Eksperyment nr 3}
+
+\subsection{Za³o¿enia}
+Zak³adana dok³adnoœæ wyniku: 0,001 
+\\Maksymalna liczba generacji: 10
+
+\subsubsection{Rezultat}
+
+Generacja #1: Srednia: 0,991 Najlepsza: 5,138 
+\\Generacja #2: Srednia: 1,055 Najlepsza: 5,138 
+\\Generacja #3: Srednia: 0,783 Najlepsza: 5,096 
+\\Generacja #4: Srednia: 0,828 Najlepsza: 5,042 
+\\Generacja #5: Srednia: 0,993 Najlepsza: 5,113 
+\\Generacja #6: Srednia: 1,182 Najlepsza: 5,124 
+\\Generacja #7: Srednia: 1,487 Najlepsza: 5,11 
+\\Generacja #8: Srednia: 1,105 Najlepsza: 5,042 
+\\Generacja #9: Srednia: 0,577 Najlepsza: 5,069 
+\\Generacja #10: Srednia: 1,045 Najlepsza: 5,074
+
+\subsubsection{Wnioski}
+Tu mo¿emy zauwa¿yæ pewn¹ stabilnoœæ w wynikach w porównaniu do pierwszego eksperymentu. Jest to spowodowane faktem zwiêkszenia dok³adnoœci wiêc równie¿ zwiêkszenia iloœci chromosomów, co zwiêksza szansê ze wyst¹pi chromosom którego poszukujemy. Tu wartoœæ najbli¿sza szukanej wyst¹pi³a ju¿ w generacji pierwszej
+
+
+\section{Wnioski}
+
+Porównuj¹c kolejne generacja w ka¿dym z eksperymentów widaæ losowoœæ metody ruletki. œrednie wartoœci funkcji dla danych populacji zmieniaja sie nieprzewidywalnie, i niemonotonicznie. Nie mo¿na stwierdziæ czy zwiêkszaj¹c iloœæ generacji dostaniemy wreszcie dok³adny wynik. Jedynym czynnikiem jaki wp³ywa znacz¹co na dok³adnoœæ wyniku jest iloœæ chromosomów, która je¿li dostatecznie du¿a daje, daje nam wystraczaj¹co wielk¹ szanse na to ¿e w populacji znajdzie siê chromosom którego wartoœæ bêdzie t¹ poszukiwan¹. Niestety zwiêkszanie populacji sprawia ¿e algorytm dzia³a bardzo powoli z racji tego, ¿e potrzebne jest czêste przeszukiwanie i losowanie populacji za jednym czy te¿ dwoma chromosomami
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BIBLIOGRAFIA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BIBLIOGRAFIA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand\refname{Bibliografia}
+\bibliographystyle{plain}
+\bibliography{bibliografia_wzor}
+[1] Instrukcja do zadania z platformy WIKAMP
+\end{document}

@@ -1,0 +1,6 @@
+C:\Users\robek_000\Desktop\Semestr 4\IADZadanie4\IADZadanie4\AlgorytmGenetyczny\bin\Debug\AlgorytmGenetyczny.exe.config
+C:\Users\robek_000\Desktop\Semestr 4\IADZadanie4\IADZadanie4\AlgorytmGenetyczny\bin\Debug\AlgorytmGenetyczny.exe
+C:\Users\robek_000\Desktop\Semestr 4\IADZadanie4\IADZadanie4\AlgorytmGenetyczny\bin\Debug\AlgorytmGenetyczny.pdb
+C:\Users\robek_000\Desktop\Semestr 4\IADZadanie4\IADZadanie4\AlgorytmGenetyczny\obj\Debug\AlgorytmGenetyczny.csprojResolveAssemblyReference.cache
+C:\Users\robek_000\Desktop\Semestr 4\IADZadanie4\IADZadanie4\AlgorytmGenetyczny\obj\Debug\AlgorytmGenetyczny.exe
+C:\Users\robek_000\Desktop\Semestr 4\IADZadanie4\IADZadanie4\AlgorytmGenetyczny\obj\Debug\AlgorytmGenetyczny.pdb
